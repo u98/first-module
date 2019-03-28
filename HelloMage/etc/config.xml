@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Uchinka_HelloMage>
+            <version>0.0.1</version>
+        </Uchinka_HelloMage>
+    </modules>
+    <frontend>
+        <routers>
+            <hellomage>
+                <use>standard</use>
+                <args>
+                    <module>Uchinka_HelloMage</module>
+                    <frontName>hellomage</frontName>
+                </args>
+            </hellomage>
+        </routers>
+        <layout>
+            <updates>
+                <hellomage>
+                    <file>hellomage.xml</file>
+                </hellomage>
+            </updates>
+        </layout>
+    </frontend>
+</config>

@@ -1,0 +1,45 @@
+<div class="sale-off">
+    <h4 class="title-slide">List Sale Off</h4>
+    <div class="cycle-slideshow"
+         data-cycle-fx="<?php echo $products['config']['fx'] ?>"
+         data-cycle-timeout="<?php echo $products['config']['delay'] * 1000; ?>">
+        <div class="cycle-prev"></div>
+        <div class="cycle-next"></div>
+        <div class="cycle-overlay"></div>
+        <div class="slide-controll">
+            <ul>
+                <?php $count = count($products['list']); ?>
+                <?php for ($i = 0; $i < $count; $i ++): ?>
+                    <li data-index="<?php echo $i ?>"></li>
+                <?php endfor; ?>
+            </ul>
+        </div>
+        <?php foreach ($products['list'] as $item): ?>
+        <img class="sale-off-img" src="<?php echo $item->getImageUrl(); ?>"
+            data-cycle-title="<?php echo $item->getName(); ?>"
+             data-cycle-desc="<?php echo $item->getPrice(); ?>">
+        <?php endforeach; ?>
+    </div>
+</div>
+
+
+<script>
+    $j(document).ready(() => {
+        let dots = $j('.slide-controll > ul > li');
+        dots.first().addClass('active');
+        $j('.cycle-slideshow').on('cycle-after', function(e, opts) {
+            dots.eq(opts.nextSlide).addClass('active').siblings().removeClass('active');
+        });
+    });
+    $j('.slide-controll > ul > li').click(function(e) {
+        let mySlide = $j('.cycle-slideshow');
+        let ele = e.target;
+        let currentIndex = $j(ele).attr('data-index');
+
+        mySlide.cycle('goto', currentIndex);
+
+        $j(this).siblings().removeClass('active');
+        $j(ele).addClass('active');
+
+    })
+</script>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+    <hellomage_test_hello translate="label">
+
+        <reference name="content">
+            <block type="core/text" name="hello_mage" as="hello_mage">
+                <action method="setText"><text><![CDATA[Hello Thinh]]></text></action>
+            </block>
+        </reference>
+
+        <reference name="head">
+            <action method="setTitle"><text><![CDATA[
+                Hello Thinh
+            ]]></text></action>
+        </reference>
+
+    </hellomage_test_hello>
+</layout>
